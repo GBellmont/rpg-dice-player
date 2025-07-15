@@ -1,0 +1,83 @@
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.text-input-component {
+  width: 100%;
+  height: 45px;
+
+  position: relative;
+}
+
+.text-input-component__name {
+  font-size: 20px;
+
+  background-color: transparent;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+
+  pointer-events: none;
+}
+
+.text-input-component__name.no-empty-value {
+  animation: floatLabelUp 0.6s ease forwards;
+}
+
+.text-input-component__name.empty-value {
+  animation: floatLabelDown 0.6s ease forwards;
+}
+
+.text-input-component__value {
+  width: 100%;
+  padding: 10px;
+
+  border: 3px solid black;
+
+  font-size: 20px;
+}
+
+@keyframes floatLabelUp {
+  0% {
+    font-size: 20px;
+    top: 0px;
+    left: 13px;
+  }
+  35% {
+    font-size: 20px;
+    top: -20px;
+    left: 14px;
+    background-color: white;
+    padding: 0px 2px;
+  }
+  100% {
+    font-size: 15px;
+    top: -10px;
+    left: 15px;
+    background-color: white;
+    padding: 0px 2px;
+  }
+}
+
+@keyframes floatLabelDown {
+  0% {
+    font-size: 15px;
+    top: -10px;
+    left: 15px;
+    background-color: white;
+    padding: 0px 2px;
+  }
+  35% {
+    font-size: 20px;
+    top: -20px;
+    left: 14px;
+    background-color: white;
+    padding: 0px 2px;
+  }
+  100% {
+    font-size: 20px;
+    top: 12px;
+    left: 12px;
+  }
+}

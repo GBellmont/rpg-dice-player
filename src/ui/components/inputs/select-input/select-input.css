@@ -4,6 +4,14 @@
   position: relative;
 }
 
+.select-input-component.disabled {
+  pointer-events: none;
+}
+
+.select-input-component.disabled .select-input-component__selected-info {
+  background-color: #efefee;
+}
+
 .select-input-component__selected-info {
   border: 3px solid black;
 
@@ -15,12 +23,12 @@
   align-items: center;
   justify-content: space-between;
 
-  background-color: white;
+  background-color: #f4f3ee;
 }
 
 .select-input-component__selected-info:hover {
   cursor: pointer;
-  background-color: #f6f6f6;
+  background-color: #efefee;
   transition: 300ms;
 }
 
@@ -55,7 +63,7 @@
 }
 
 .select-input-component__list {
-  background-color: white;
+  background-color: #f4f3ee;
 
   position: absolute;
   top: 100%;
@@ -90,44 +98,22 @@
   border-bottom: 1px solid grey;
   min-width: 100%;
   padding: 2px 10px;
-  background-color: white;
+  background-color: #f4f3ee;
 
   text-align: left;
 }
 
 .select-input-component__item.select-input-component__selected {
-  background-color: #d0d0d0;
+  background-color: #eaeaee;
   pointer-events: none;
 }
 
 .select-input-component__item:hover {
   cursor: pointer;
-  background-color: #f0f0f0;
+  background-color: #efefee;
   transition: 300ms;
 }
 
 .select-input-component__item.last {
   border-bottom: 3px solid black;
-}
-
-@keyframes floatLabelUp {
-  0% {
-    font-size: 20px;
-    top: 0px;
-    left: 13px;
-  }
-  35% {
-    font-size: 20px;
-    top: -20px;
-    left: 14px;
-    background-color: white;
-    padding: 0px 2px;
-  }
-  100% {
-    font-size: 15px;
-    top: -10px;
-    left: 15px;
-    background-color: white;
-    padding: 0px 2px;
-  }
 }

@@ -25,7 +25,12 @@ const TextInputComponent = ({
   onlyNumbers,
   value,
 }: TextInputProps) => {
-  const [inputData, setInputData] = useState(TEXT_INPUT_INITIAL_STATE_DATA);
+  const [inputData, setInputData] = useState({
+    ...TEXT_INPUT_INITIAL_STATE_DATA,
+    additionalClassName: value.trim()
+      ? INPUT_NO_EMPTY_VALUE_CLASS
+      : INPUT_EMPTY_VALUE_CLASS,
+  });
 
   const verifyAndSetAdditionalClassName = (isFocused: boolean): void => {
     const newAdditionalClass =

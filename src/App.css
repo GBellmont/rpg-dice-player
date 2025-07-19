@@ -2,3 +2,47 @@
   height: 100%;
   width: 100%;
 }
+
+@keyframes floatLabelUp {
+  0% {
+    font-size: 20px;
+    top: 0px;
+    left: 13px;
+  }
+  35% {
+    font-size: 20px;
+    top: -20px;
+    left: 14px;
+    background-color: #f4f3ee;
+    padding: 0px 2px;
+  }
+  100% {
+    font-size: 15px;
+    top: -10px;
+    left: 15px;
+    background-color: #f4f3ee;
+    padding: 0px 2px;
+  }
+}
+
+@keyframes floatLabelDown {
+  0% {
+    font-size: 15px;
+    top: -10px;
+    left: 15px;
+    background-color: #f4f3ee;
+    padding: 0px 2px;
+  }
+  35% {
+    font-size: 20px;
+    top: -20px;
+    left: 14px;
+    background-color: #f4f3ee;
+    padding: 0px 2px;
+  }
+  100% {
+    font-size: 20px;
+    top: 9px;
+    left: 12px;
+  }
+}

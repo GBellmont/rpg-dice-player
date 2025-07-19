@@ -1,4 +1,5 @@
 import type { OnChangeInputProps } from "../../ui/components/inputs/shared";
+import { DICE_TYPES } from "./dices.constants";
 
 const INPUT_EMPTY_VALUE_CLASS = "empty-value";
 const INPUT_NO_EMPTY_VALUE_CLASS = "no-empty-value";
@@ -29,7 +30,46 @@ const TEXT_INPUT_INITIAL_STATE_DATA = {
   additionalClassName: "",
 };
 
+const DICE_PANEL_INPUTS = {
+  name: {
+    inputFieldName: "name",
+    inputFieldLabel: "Nome",
+  },
+  diceType: {
+    inputFieldName: "diceType",
+    inputFieldLabel: "Tipo de Dado",
+    options: [
+      { id: "1", value: DICE_TYPES.D4 },
+      { id: "2", value: DICE_TYPES.D6 },
+      { id: "3", value: DICE_TYPES.D8 },
+      { id: "4", value: DICE_TYPES.D10 },
+      { id: "5", value: DICE_TYPES.D12 },
+      { id: "6", value: DICE_TYPES.D20 },
+    ],
+  },
+  diceAdvantage: {
+    inputFieldName: "diceAdvantage",
+    inputFieldLabel: "Vantagem",
+  },
+  diceBuff: {
+    inputFieldName: "diceBuff",
+    inputFieldLabel: "Buff",
+  },
+  diceDeBuff: {
+    inputFieldName: "diceDeBuff",
+    inputFieldLabel: "DeBuff",
+  },
+  diceSelected: {
+    inputFieldName: "diceSelected",
+    inputFieldLabel: "Selecionado?",
+  },
+  diceResult: {
+    inputFieldName: "diceResultSelected",
+  },
+};
+
 export {
+  DICE_PANEL_INPUTS,
   INPUT_EMPTY_VALUE_CLASS,
   INPUT_NO_EMPTY_VALUE_CLASS,
   INPUT_TYPE,

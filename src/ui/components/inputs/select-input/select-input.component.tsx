@@ -12,21 +12,23 @@ import {
 
 interface SelectInputItemProps {
   id: string;
+  value: string;
   selectedId: string;
   selectItem: (value: string) => void;
 }
 
 interface SelectInputProps {
-  icon: string;
+  icon?: string;
   label: string;
   name: string;
   onChange: (event: OnChangeInputProps) => void;
-  options: Array<{ id: string }>;
-  value: string;
+  options: Array<{ id: string; value: string }>;
+  selectedId: string;
 }
 
 const SelectItemSubComponent = ({
   id,
+  value,
   selectedId,
   selectItem,
 }: SelectInputItemProps) => {
@@ -38,7 +40,7 @@ const SelectItemSubComponent = ({
       }`}
       onClick={() => selectItem(id)}
     >
-      {id}
+      {value}
     </button>
   );
 };
@@ -49,9 +51,12 @@ const SelectInputComponent = ({
   onChange,
   options,
   name,
-  value,
+  selectedId,
 }: SelectInputProps) => {
   const [inputData, setInputData] = useState(SELECT_INPUT_INITIAL_DATA);
+  const selectedValue = options.find(
+    (option) => option.id === selectedId
+  )?.value;
 
   const toggleListVisible = () => {
     setInputData({ ...inputData, visibleList: !inputData.visibleList });
@@ -63,7 +68,11 @@ const SelectInputComponent = ({
   };
 
   return (
-    <div className="select-input-component">
+    <div
+      className={`select-input-component ${
+        !options?.length || options.length === 1 ? "disabled" : ""
+      }`}
+    >
       <button
         className={`select-input-component__selected-info ${
           inputData.visibleList ? SELECT_INPUT_OPEN_CLASS : ""
@@ -73,17 +82,19 @@ const SelectInputComponent = ({
         <p
           id="select-input-component__name"
           className={`select-input-component__name ${
-            value?.trim() ? INPUT_NO_EMPTY_VALUE_CLASS : ""
+            selectedValue?.trim() ? INPUT_NO_EMPTY_VALUE_CLASS : ""
           }`}
         >
           {label}
         </p>
-        <p className="select-input-component__value">{value}</p>
-        <img
-          className="select-input-component__icon"
-          src={icon}
-          alt="Select Icon"
-        ></img>
+        <p className="select-input-component__value">{selectedValue}</p>
+        {!!icon && (
+          <img
+            className="select-input-component__icon"
+            src={icon}
+            alt="Select Icon"
+          ></img>
+        )}
       </button>
       <div
         className={`select-input-component__list ${
@@ -92,9 +103,11 @@ const SelectInputComponent = ({
       >
         {options.map((option) => (
           <SelectItemSubComponent
+            key={option.id}
             id={option.id}
+            value={option.value}
             selectItem={setNewInputValue}
-            selectedId={value}
+            selectedId={selectedId}
           />
         ))}
       </div>

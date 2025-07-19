@@ -1,0 +1,138 @@
+.dice-panel-component {
+  width: 450px;
+  height: 525px;
+
+  border-radius: 12px;
+  background-color: #f4f3ee;
+  padding: 20px;
+
+  box-shadow: -5px 5px 10px -2px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.dice-panel-component__input-data {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  row-gap: 20px;
+
+  padding-bottom: 15px;
+  border-bottom: 2px solid black;
+}
+
+.dice-panel-component__dice-numbers,
+.dice-panel-component__dice-increments {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  column-gap: 20px;
+}
+
+.dice-panel-component__result-data {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.dice-panel-component__roll-dice {
+  border: none;
+  background-color: transparent;
+
+  width: 50px;
+  height: 50px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.dice-panel-component__roll-dice:hover,
+.dice-panel-component__function:hover {
+  cursor: pointer;
+  transform: scale(115%);
+  transition: 400ms;
+}
+
+.dice-panel-component__text-result {
+  margin-top: 20px;
+  margin-bottom: 5px;
+
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.dice-panel-component__date-result {
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
+
+  color: #acacac;
+}
+
+.dice-panel-component__functions {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  column-gap: 20px;
+}
+
+.dice-panel-component__function {
+  border: none;
+  background-color: transparent;
+
+  width: 30px;
+  height: 30px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.dice-panel-component__function:before {
+  pointer-events: none;
+  content: attr(tooltip-message);
+  padding: 5px;
+  border-radius: 20px;
+
+  background-color: #4b3f72;
+  color: #fff;
+  font-size: 8px;
+  font-weight: bold;
+  white-space: nowrap;
+  max-width: none;
+
+  position: absolute;
+  transform: translate(-80%, -100%);
+  opacity: 0;
+}
+
+.dice-panel-component__function:hover:before {
+  animation: dislizeTooltip 1s ease forwards;
+}
+
+@keyframes dislizeTooltip {
+  0% {
+    transform: translate(-80%, -100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-120%, -100%);
+    opacity: 1;
+  }
+}
